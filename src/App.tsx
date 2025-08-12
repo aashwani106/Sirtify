@@ -9,12 +9,13 @@ import {
   PartnersSection,
   PartnersRecognitionSection,
   ImpactNumbersSection,
-  Footer
+  Footer,
 } from "./components";
 import { AboutUs } from "./pages/AboutUs";
 import { LearnersPage } from "./pages/LearnersPage";
 import { CertificationsPage } from "./pages/CertificationsPage";
 import { SirtifyInternationalPage } from "./pages/SirtifyInternationalPage";
+import Programs from "./pages/Programs";
 
 export default function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -24,12 +25,12 @@ export default function App() {
       setCurrentPath(window.location.pathname);
     };
 
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
   const navigateTo = (path: string) => {
-    window.history.pushState({}, '', path);
+    window.history.pushState({}, "", path);
     setCurrentPath(path);
   };
 
@@ -38,22 +39,26 @@ export default function App() {
     (window as any).navigateTo = navigateTo;
   }, []);
 
-  if (currentPath === '/about') {
+  if (currentPath === "/about") {
     return <AboutUs />;
   }
-  
-          if (currentPath === '/learners') {
-          return <LearnersPage />;
-        }
 
-        if (currentPath === '/certifications') {
-          return <CertificationsPage />;
-        }
+  if (currentPath === "/programs") {
+    return <Programs />;
+  }
 
-        if (currentPath === '/sirtify-international') {
-          return <SirtifyInternationalPage />;
-        }
-  
+  if (currentPath === "/learners") {
+    return <LearnersPage />;
+  }
+
+  if (currentPath === "/certifications") {
+    return <CertificationsPage />;
+  }
+
+  if (currentPath === "/sirtify-international") {
+    return <SirtifyInternationalPage />;
+  }
+
   // Default landing page
   return (
     <div className="bg-[#FEF7F1] font-sans min-h-screen overflow-x-hidden">

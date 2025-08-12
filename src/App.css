@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+
+#pricing{
+    border-radius: 21.652px;
+background: linear-gradient(0deg, rgba(254, 176, 146, 0.50) 0%, rgba(254, 176, 146, 0.50) 100%);
+box-shadow: 0 1.443px 9.238px 0 rgba(255, 255, 255, 0.10);
+}
